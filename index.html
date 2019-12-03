@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Timeout test</title>
+</head>
+
+<body>
+    <script src="/axios"></script>
+    <script>
+      const axiosInstance = axios.create({ 
+        timeout: 1000000
+      });
+      const root = document.getElementsByTagName('html')[0];
+      root.style.height = '100%';
+      root.onclick = function() {
+        console.log('Sending request')
+        axiosInstance.get('/test').catch((error) => {
+          console.dir(error);
+        });
+      };
+    </script>
+</body>
+
+</html>
